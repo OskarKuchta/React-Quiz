@@ -1,19 +1,19 @@
 import PropTypes from "prop-types";
 
 const Answer = (props) => {
-  const getValue = () => {
-    console.log(props.val);
+  const getValue = (event) => {
+    console.log(event.target.innerHTML);
   };
+
   return (
-    <>
-      <button onClick={getValue} className="btn option">
-        {props.val}
-      </button>
-    </>
+    <button onClick={getValue} className="btn option">
+      {props.option}
+    </button>
   );
 };
 
 Answer.propTypes = {
-  val: PropTypes.string.isRequired,
+  option: PropTypes.string.isRequired,
 };
+
 export default Answer;
