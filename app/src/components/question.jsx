@@ -1,5 +1,9 @@
 const Question = () => {
-  return <h2 className="question">What&apos;s your favourite day?</h2>;
+  return (
+    <h2 className="question">
+      In which Italian city can you find the Colosseum?
+    </h2>
+  );
 };
 
 export default Question;

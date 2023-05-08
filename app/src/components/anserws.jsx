@@ -1,9 +1,14 @@
 import PropTypes from "prop-types";
 
 const Answer = (props) => {
+  const getValue = () => {
+    console.log(props.val);
+  };
   return (
     <>
-      <button className="option">{props.val}</button>
+      <button onClick={getValue} className="btn option">
+        {props.val}
+      </button>
     </>
   );
 };

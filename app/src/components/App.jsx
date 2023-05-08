@@ -5,10 +5,10 @@ const App = () => {
   return (
     <main className="container">
       <Question />
-      <Answer val="Monday MondayMondayMondayMonday Mondayv Monday Monday Monday Monday Monday " />
-      <Answer val="Friday Friday Friday  Friday Friday Friday Friday Friday Friday Friday Friday Friday " />
-      <Answer val="Saturday" />
-      <Answer val="Sunday" />
+      <Answer val="Venice" />
+      <Answer val="Rome" />
+      <Answer val="Naples" />
+      <Answer val="Milan" />
       <Submit />
     </main>
   );
