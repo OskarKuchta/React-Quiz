@@ -8,6 +8,7 @@ const Quiz = () => {
   const [message, setMessage] = useState("");
   const [current, setCurrent] = useState(0);
   const [correct, setCorrect] = useState(0);
+  const submitBtn = document.querySelector(".submit");
   const getValue = (event) => {
     setValue(event.target.innerHTML);
   };
@@ -25,25 +26,30 @@ const Quiz = () => {
     }
     setCurrent(current + 1);
     setValue("");
+    submitBtn.blur();
   };
   console.log(correct);
   return (
     <main className="container">
-      <Question val={questions[current].question} />
-      <button onClick={getValue} className="btn option">
-        {questions[current].options[0]}
-      </button>
-      <button onClick={getValue} className="btn option">
-        {questions[current].options[1]}
-      </button>
-      <button onClick={getValue} className="btn option">
-        {questions[current].options[2]}
-      </button>
-      <button onClick={getValue} className="btn option">
-        {questions[current].options[3]}
-      </button>
-      <Submit onClick={checkAnswer} />
-      {message ? <p>{message}</p> : ""}
+      {current < 3 ? (
+        <>
+          <Question val={questions[current].question} />
+          <button onClick={getValue} className="btn option">
+            {questions[current].options[0]}
+          </button>
+          <button onClick={getValue} className="btn option">
+            {questions[current].options[1]}
+          </button>
+          <button onClick={getValue} className="btn option">
+            {questions[current].options[2]}
+          </button>
+          <button onClick={getValue} className="btn option">
+            {questions[current].options[3]}
+          </button>
+          <Submit onClick={checkAnswer} />
+          {message ? <p className="message">{message}</p> : ""}
+        </>
+      ) : null}
     </main>
   );
 };

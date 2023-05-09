@@ -40,8 +40,8 @@ body {
   cursor: pointer;
   font-size: 1.8rem;
   background: none;
-  border: 2px solid rgb(236, 230, 230);
-  transition: 1s background-color ease-in-out;
+  border: 2px solid rgb(252, 252, 252);
+  transition: 0.6s background-color ease-in-out;
 }
 
 .submit {
@@ -53,13 +53,19 @@ body {
 .btn:focus {
   background-color: #a972cb;
   border: 2px solid #a972cb;
-  color: rgb(240, 234, 234);
+  color: rgb(252, 252, 252);
 }
 
 .submit:hover,
 .submit:focus {
   background-color: #93cb72;
   border: 2px solid #93cb72;
+}
+
+.message {
+  margin-top: 3rem;
+  font-size: 2rem;
+  color: rgb(252, 252, 252);
 }
 
 @media screen and (max-width: 700px) {
@@ -83,5 +89,8 @@ body {
   }
   .submit {
     margin-top: 3rem;
+  }
+  .message {
+    font-size: 1.5rem;
   }
 }
