@@ -1,5 +1,5 @@
 const Question = (props) => {
-  return <h2 className="question">{props.val}</h2>;
+  return <h2 className="header">{props.val}</h2>;
 };
 
 export default Question;

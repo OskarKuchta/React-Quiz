@@ -25,7 +25,7 @@ body {
   width: 55%;
   height: 100%;
 }
-.question {
+.header {
   text-align: center;
   color: $white;
   font-size: 2rem;
@@ -63,6 +63,10 @@ body {
   font-size: 2rem;
   color: $white;
 }
+.finish {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+}
 @media screen and (max-width: 700px) {
   body {
     background-image: url("/background-mobile.jpg");
@@ -71,7 +75,7 @@ body {
     width: 90%;
     height: 100%;
   }
-  .question {
+  .header {
     padding-bottom: 2rem;
     font-size: 1.7rem;
   }
@@ -87,5 +91,8 @@ body {
   }
   .message {
     font-size: 1.5rem;
+  }
+  .finish {
+    font-size: 2.5rem;
   }
 }

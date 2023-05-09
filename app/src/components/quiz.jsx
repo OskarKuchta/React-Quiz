@@ -2,7 +2,8 @@ import { useState } from "react";
 import Submit from "./submit";
 import questions from "./questions";
 import Question from "./question";
-
+import Finished from "./complete-quiz";
+import Button from "./Button";
 const Quiz = () => {
   const [value, setValue] = useState("");
   const [message, setMessage] = useState("");
@@ -13,8 +14,6 @@ const Quiz = () => {
     setValue(event.target.innerHTML);
   };
   const checkAnswer = () => {
-    console.log(value);
-    console.log(message);
     if (value.trim() == "") {
       return;
     }
@@ -28,26 +27,22 @@ const Quiz = () => {
     setValue("");
     submitBtn.blur();
   };
-  console.log(correct);
   return (
     <main className="container">
-      {current < 3 ? (
+      {current < questions.length ? (
         <>
           <Question val={questions[current].question} />
-          <button onClick={getValue} className="btn option">
-            {questions[current].options[0]}
-          </button>
-          <button onClick={getValue} className="btn option">
-            {questions[current].options[1]}
-          </button>
-          <button onClick={getValue} className="btn option">
-            {questions[current].options[2]}
-          </button>
-          <button onClick={getValue} className="btn option">
-            {questions[current].options[3]}
-          </button>
+          <Button onClick={getValue}>{questions[current].options[0]}</Button>
+          <Button onClick={getValue}>{questions[current].options[1]}</Button>
+          <Button onClick={getValue}>{questions[current].options[2]}</Button>
+          <Button onClick={getValue}>{questions[current].options[3]}</Button>
           <Submit onClick={checkAnswer} />
           {message ? <p className="message">{message}</p> : ""}
+        </>
+      ) : null}
+      {current == questions.length ? (
+        <>
+          <Finished correct={correct} all={questions.length} />
         </>
       ) : null}
     </main>
