@@ -23,7 +23,9 @@ const Quiz = () => {
         setMessage("Correct answer");
         setCorrect(correct + 1);
       } else {
-        setMessage("Incorrect answer");
+        setMessage(
+          `Incorrect answer, correct answer is ${questions[current].answer}`
+        );
       }
       submitBtn.blur();
       submitBtn.innerHTML = "Next question";
