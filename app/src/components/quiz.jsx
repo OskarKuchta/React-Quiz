@@ -9,23 +9,35 @@ const Quiz = () => {
   const [message, setMessage] = useState("");
   const [current, setCurrent] = useState(0);
   const [correct, setCorrect] = useState(0);
-  const submitBtn = document.querySelector(".submit");
+  let submitBtn = document.querySelector(".submit");
   const getValue = (event) => {
     setValue(event.target.innerHTML);
   };
   const checkAnswer = () => {
+    let info = document.querySelector(".message");
     if (value.trim() == "") {
       return;
     }
-    if (value == questions[current].answer) {
-      setMessage("Correct answer");
-      setCorrect(correct + 1);
+    if (submitBtn.innerHTML == "Confirm") {
+      if (value == questions[current].answer) {
+        setMessage("Correct answer");
+        setCorrect(correct + 1);
+      } else {
+        setMessage("Incorrect answer");
+      }
+      submitBtn.blur();
+      submitBtn.innerHTML = "Next question";
+      if (current == questions.length - 1) {
+        submitBtn.innerHTML = "Check your score";
+      }
+      info.style.display = "inline-block";
     } else {
-      setMessage("Incorrect answer");
+      setCurrent(current + 1);
+      setValue("");
+      submitBtn.innerHTML = "Confirm";
+      submitBtn.blur();
+      info.style.display = "none";
     }
-    setCurrent(current + 1);
-    setValue("");
-    submitBtn.blur();
   };
   return (
     <main className="container">
@@ -36,7 +48,7 @@ const Quiz = () => {
           <Button onClick={getValue}>{questions[current].options[1]}</Button>
           <Button onClick={getValue}>{questions[current].options[2]}</Button>
           <Button onClick={getValue}>{questions[current].options[3]}</Button>
-          <Submit onClick={checkAnswer} />
+          <Submit onClick={checkAnswer} id="next-question" />
           {message ? <p className="message">{message}</p> : ""}
         </>
       ) : null}
