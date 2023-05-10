@@ -9,6 +9,7 @@ const Quiz = () => {
   const [message, setMessage] = useState("");
   const [current, setCurrent] = useState(0);
   const [correct, setCorrect] = useState(0);
+  const [answer, setAnswer] = useState(false);
   let submitBtn = document.querySelector(".submit");
   const getValue = (event) => {
     setValue(event.target.innerHTML);
@@ -32,13 +33,13 @@ const Quiz = () => {
       if (current == questions.length - 1) {
         submitBtn.innerHTML = "Check your score";
       }
-      info.style.display = "inline-block";
+      setAnswer(true);
     } else {
       setCurrent(current + 1);
       setValue("");
       submitBtn.innerHTML = "Confirm";
       submitBtn.blur();
-      info.style.display = "none";
+      setAnswer(false);
     }
   };
   return (
@@ -51,7 +52,7 @@ const Quiz = () => {
           <Button onClick={getValue}>{questions[current].options[2]}</Button>
           <Button onClick={getValue}>{questions[current].options[3]}</Button>
           <Submit onClick={checkAnswer} id="next-question" />
-          {message ? <p className="message">{message}</p> : ""}
+          {answer ? <p className="message">{message}</p> : null}
         </>
       ) : null}
       {current == questions.length ? (

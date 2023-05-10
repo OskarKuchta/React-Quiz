@@ -45,7 +45,7 @@ body {
 }
 
 .submit {
-  margin-top: 7rem;
+  margin-top: 3rem;
   width: 60%;
 }
 
@@ -63,9 +63,10 @@ body {
 }
 
 .message {
-  margin-top: 3rem;
+  margin-top: 2rem;
   font-size: 2rem;
   color: rgb(252, 252, 252);
+  text-align: center;
 }
 
 .finish {
@@ -93,7 +94,7 @@ body {
     margin: 0.5rem;
   }
   .submit {
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
   .message {
     font-size: 1.5rem;
