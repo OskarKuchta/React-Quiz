@@ -12,6 +12,8 @@ const Quiz = () => {
   const [answer, setAnswer] = useState(false);
   const [effect, setEffect] = useState("effect");
   let submitBtn = document.querySelector(".submit");
+  const [fill, setFill] = useState("");
+  const btnClass = `btn option ${effect} ${fill}`;
   const getValue = (event) => {
     setValue(event.target.innerHTML);
   };
@@ -23,6 +25,7 @@ const Quiz = () => {
       if (value == questions[current].answer) {
         setMessage("Correct answer");
         setCorrect(correct + 1);
+        setFill("correct");
       } else {
         setMessage(
           `Incorrect answer, correct answer is ${questions[current].answer}`
@@ -49,16 +52,16 @@ const Quiz = () => {
       {current < questions.length ? (
         <>
           <Question val={questions[current].question} />
-          <Button className={`btn option ${effect}`} onClick={getValue}>
+          <Button className={btnClass} onClick={getValue}>
             {questions[current].options[0]}
           </Button>
-          <Button className={`btn option ${effect}`} onClick={getValue}>
+          <Button className={btnClass} onClick={getValue}>
             {questions[current].options[1]}
           </Button>
-          <Button className={`btn option ${effect}`} onClick={getValue}>
+          <Button className={btnClass} onClick={getValue}>
             {questions[current].options[2]}
           </Button>
-          <Button className={`btn option ${effect}`} onClick={getValue}>
+          <Button className={btnClass} onClick={getValue}>
             {questions[current].options[3]}
           </Button>
           <Submit onClick={checkAnswer} id="next-question" />
