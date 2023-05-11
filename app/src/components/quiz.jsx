@@ -12,8 +12,7 @@ const Quiz = () => {
   const [answer, setAnswer] = useState(false);
   const [effect, setEffect] = useState("effect");
   let submitBtn = document.querySelector(".submit");
-  const [fill, setFill] = useState("");
-  const btnClass = `btn option ${effect} ${fill}`;
+  const btnClass = `btn option ${effect}`;
   const getValue = (event) => {
     setValue(event.target.innerHTML);
   };

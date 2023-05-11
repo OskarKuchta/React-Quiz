@@ -44,6 +44,7 @@ body {
   background: none;
   border: 2px solid rgb(252, 252, 252);
   transition: 0.6s background-color ease-in-out;
+  outline: none;
 }
 
 .effect {
