@@ -10,6 +10,7 @@ const Quiz = () => {
   const [current, setCurrent] = useState(0);
   const [correct, setCorrect] = useState(0);
   const [answer, setAnswer] = useState(false);
+  const [effect, setEffect] = useState("effect");
   let submitBtn = document.querySelector(".submit");
   const getValue = (event) => {
     setValue(event.target.innerHTML);
@@ -33,12 +34,14 @@ const Quiz = () => {
         submitBtn.innerHTML = "Check your score";
       }
       setAnswer(true);
+      setEffect("");
     } else {
       setCurrent(current + 1);
       setValue("");
       submitBtn.innerHTML = "Confirm";
       submitBtn.blur();
       setAnswer(false);
+      setEffect("effect");
     }
   };
   return (
@@ -46,10 +49,18 @@ const Quiz = () => {
       {current < questions.length ? (
         <>
           <Question val={questions[current].question} />
-          <Button onClick={getValue}>{questions[current].options[0]}</Button>
-          <Button onClick={getValue}>{questions[current].options[1]}</Button>
-          <Button onClick={getValue}>{questions[current].options[2]}</Button>
-          <Button onClick={getValue}>{questions[current].options[3]}</Button>
+          <Button className={`btn option ${effect}`} onClick={getValue}>
+            {questions[current].options[0]}
+          </Button>
+          <Button className={`btn option ${effect}`} onClick={getValue}>
+            {questions[current].options[1]}
+          </Button>
+          <Button className={`btn option ${effect}`} onClick={getValue}>
+            {questions[current].options[2]}
+          </Button>
+          <Button className={`btn option ${effect}`} onClick={getValue}>
+            {questions[current].options[3]}
+          </Button>
           <Submit onClick={checkAnswer} id="next-question" />
           {answer ? <p className="message">{message}</p> : null}
         </>
