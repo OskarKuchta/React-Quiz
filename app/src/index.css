@@ -69,30 +69,6 @@ body {
   color: rgb(252, 252, 252);
 }
 
-.correct {
-  position: relative;
-  width: 100%;
-  z-index: 1;
-}
-
-.correct::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 0%;
-  background-color: lightgreen;
-  z-index: -1;
-  animation: fill-background 1s linear forwards;
-}
-
-@keyframes fill-background {
-  to {
-    width: 100%;
-  }
-}
 .message {
   margin-top: 2rem;
   font-size: 2rem;

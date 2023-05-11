@@ -25,7 +25,6 @@ const Quiz = () => {
       if (value == questions[current].answer) {
         setMessage("Correct answer");
         setCorrect(correct + 1);
-        setFill("correct");
       } else {
         setMessage(
           `Incorrect answer, correct answer is ${questions[current].answer}`
