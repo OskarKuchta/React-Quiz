@@ -15,7 +15,6 @@ const Quiz = () => {
     setValue(event.target.innerHTML);
   };
   const checkAnswer = () => {
-    let info = document.querySelector(".message");
     if (value.trim() == "") {
       return;
     }

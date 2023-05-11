@@ -1,6 +1,6 @@
 const Button = ({ onClick, children }) => {
   return (
-    <button onClick={onClick} className="btn option">
+    <button onClick={onClick} className="btn option effect">
       {children}
     </button>
   );

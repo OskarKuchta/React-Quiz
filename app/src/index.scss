@@ -43,13 +43,15 @@ body {
   border: 2px solid $white;
   transition: 0.6s background-color ease-in-out;
 }
-
+.effect {
+  transition: 0.6s background-color ease-in-out;
+}
 .submit {
   margin-top: 3rem;
   width: 60%;
 }
-.btn:hover,
-.btn:focus {
+.effect:hover,
+.effect:focus {
   background-color: #a972cb;
   border: 2px solid #a972cb;
   color: $white;
@@ -58,6 +60,7 @@ body {
 .submit:focus {
   background-color: #93cb72;
   border: 2px solid #93cb72;
+  color: $white;
 }
 
 .message {
