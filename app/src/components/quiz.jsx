@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Submit from "./submit";
 import questions from "./questions";
 import Question from "./question";
@@ -11,7 +11,7 @@ const Quiz = () => {
   const [correct, setCorrect] = useState(0);
   const [answer, setAnswer] = useState(false);
   const [effect, setEffect] = useState("effect");
-  let submitBtn = document.querySelector(".submit");
+  const submitBtn = useRef(null);
   const btnClass = `btn option ${effect}`;
   const getValue = (event) => {
     setValue(event.target.innerHTML);
@@ -20,7 +20,7 @@ const Quiz = () => {
     if (value.trim() == "") {
       return;
     }
-    if (submitBtn.innerHTML == "Confirm") {
+    if (submitBtn.current.innerHTML == "Confirm") {
       if (value == questions[current].answer) {
         setMessage("Correct answer");
         setCorrect(correct + 1);
@@ -29,18 +29,18 @@ const Quiz = () => {
           `Incorrect answer, correct answer is ${questions[current].answer}`
         );
       }
-      submitBtn.blur();
-      submitBtn.innerHTML = "Next question";
+      submitBtn.current.blur();
+      submitBtn.current.innerHTML = "Next question";
       if (current == questions.length - 1) {
-        submitBtn.innerHTML = "Check your score";
+        submitBtn.current.innerHTML = "Check your score";
       }
       setAnswer(true);
       setEffect("");
     } else {
       setCurrent(current + 1);
       setValue("");
-      submitBtn.innerHTML = "Confirm";
-      submitBtn.blur();
+      submitBtn.current.innerHTML = "Confirm";
+      submitBtn.current.blur();
       setAnswer(false);
       setEffect("effect");
     }
@@ -62,7 +62,7 @@ const Quiz = () => {
           <Button className={btnClass} onClick={getValue}>
             {questions[current].options[3]}
           </Button>
-          <Submit onClick={checkAnswer} id="next-question" />
+          <Submit onClick={checkAnswer} ref={submitBtn} />
           {answer ? <p className="message">{message}</p> : null}
         </>
       ) : null}
