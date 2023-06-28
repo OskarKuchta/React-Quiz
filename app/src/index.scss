@@ -56,12 +56,6 @@ body {
   border: 2px solid #a972cb;
   color: $white;
 }
-.submit:hover,
-.submit:focus {
-  background-color: #93cb72;
-  border: 2px solid #93cb72;
-  color: $white;
-}
 
 .message {
   margin-top: 2rem;
@@ -118,5 +112,13 @@ body {
   }
   body {
     height: 100vh;
+  }
+}
+@media (min-width: 769px) {
+  .submit:hover,
+  .submit:focus {
+    background-color: #93cb72;
+    border: 2px solid #93cb72;
+    color: $white;
   }
 }
