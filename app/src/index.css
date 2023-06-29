@@ -63,13 +63,6 @@ body {
   color: rgb(252, 252, 252);
 }
 
-.submit:hover,
-.submit:focus {
-  background-color: #93cb72;
-  border: 2px solid #93cb72;
-  color: rgb(252, 252, 252);
-}
-
 .message {
   margin-top: 2rem;
   font-size: 2rem;
@@ -127,5 +120,13 @@ body {
   }
   body {
     height: 100vh;
+  }
+}
+@media (min-width: 769px) {
+  .submitEffect:hover,
+  .submitEffect:focus {
+    background-color: #93cb72;
+    border: 2px solid #93cb72;
+    color: rgb(252, 252, 252);
   }
 }

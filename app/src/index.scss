@@ -56,7 +56,6 @@ body {
   border: 2px solid #a972cb;
   color: $white;
 }
-
 .message {
   margin-top: 2rem;
   font-size: 2rem;
@@ -67,6 +66,7 @@ body {
   font-size: 3.5rem;
   text-transform: uppercase;
 }
+
 @media screen and (max-width: 700px) {
   .header {
     padding-bottom: 2rem;
@@ -115,10 +115,10 @@ body {
   }
 }
 @media (min-width: 769px) {
-  .submit:hover,
-  .submit:focus {
+  .submitEffect:hover,
+  .submitEffect:focus {
     background-color: #93cb72;
     border: 2px solid #93cb72;
-    color: $white;
+    color: rgb(252, 252, 252);
   }
 }

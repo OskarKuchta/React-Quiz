@@ -4,17 +4,22 @@ import questions from "./questions";
 import Question from "./question";
 import Finished from "./complete-quiz";
 import Button from "./Button";
+
 const Quiz = () => {
-  const [value, setValue] = useState("");
-  const [message, setMessage] = useState("");
-  const [current, setCurrent] = useState(0);
-  const [correct, setCorrect] = useState(0);
-  const [answer, setAnswer] = useState(false);
-  const [effect, setEffect] = useState("effect");
-  const submitBtn = useRef(null);
-  const btnClass = `btn option ${effect}`;
-  const getValue = (event) => {
-    setValue(event.target.innerHTML);
+  const [value, setValue] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const [current, setCurrent] = useState<number>(0);
+  const [correct, setCorrect] = useState<number>(0);
+  const [answer, setAnswer] = useState<boolean>(false);
+  const [effect, setEffect] = useState<string>("effect");
+  const [submitEffect, setSubmitEffect] = useState<string>("submitEffect");
+  const submitBtn: React.MutableRefObject<HTMLButtonElement | null> =
+    useRef(null);
+  const btnClass: string = `btn option ${effect}`;
+  const submitClass: string = `btn submit ${submitEffect}`;
+  const getValue = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const target = event.target as HTMLButtonElement;
+    setValue(target.innerHTML);
   };
   const checkAnswer = () => {
     if (value.trim() == "") {
@@ -36,6 +41,10 @@ const Quiz = () => {
       }
       setAnswer(true);
       setEffect("");
+      setSubmitEffect("");
+      setTimeout(() => {
+        setSubmitEffect("submitEffect");
+      }, 1000);
     } else {
       setCurrent(current + 1);
       setValue("");
@@ -43,6 +52,10 @@ const Quiz = () => {
       submitBtn.current.blur();
       setAnswer(false);
       setEffect("effect");
+      setSubmitEffect("");
+      setTimeout(() => {
+        setSubmitEffect("submitEffect");
+      }, 2000);
     }
   };
   return (
@@ -62,7 +75,11 @@ const Quiz = () => {
           <Button className={btnClass} onClick={getValue}>
             {questions[current].options[3]}
           </Button>
-          <Submit onClick={checkAnswer} ref={submitBtn} />
+          <Submit
+            onClick={checkAnswer}
+            ref={submitBtn}
+            className={submitClass}
+          />
           {answer ? <p className="message">{message}</p> : null}
         </>
       ) : null}

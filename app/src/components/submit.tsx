@@ -1,16 +1,19 @@
-import React, { RefObject } from "react";
+import React, { Ref } from "react";
 
 interface SubmitInterface {
   onClick: () => void;
-  ref: RefObject<HTMLButtonElement>;
+  ref: Ref<HTMLButtonElement>;
+  className: string;
 }
 
-const Submit: React.FC<SubmitInterface> = ({ onClick }, ref) => {
-  return (
-    <button className="btn submit" onClick={onClick} ref={ref}>
-      Confirm
-    </button>
-  );
-};
+const Submit: React.FC<SubmitInterface> = React.forwardRef(
+  ({ onClick, className }, ref) => {
+    return (
+      <button className={className} onClick={onClick} ref={ref}>
+        Confirm
+      </button>
+    );
+  }
+);
 
 export default Submit;
